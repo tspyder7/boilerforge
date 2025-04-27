@@ -1,0 +1,34 @@
+{
+  "name": "boilerforge",
+  "version": "1.0.0",
+  "description": "✨ boilerforge is a CLI tool to create project with boilerplate code",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "ci": "pnpm install --frozen-lockfile",
+    "build": "tsc",
+    "prebuild": "pnpm run clean && pnpm run lint && pnpm run format",
+    "start": "node dist/",
+    "lint": "eslint --ext .js,.ts .",
+    "format": "prettier --write \"**/*.+(js|ts)\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx src/"
+  },
+  "keywords": [],
+  "author": "tspyder7",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0",
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.0"
+  }
+}
