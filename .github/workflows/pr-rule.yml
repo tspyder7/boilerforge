@@ -1,0 +1,17 @@
+name: Restrict PR Source Branch
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  restrict-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR source branch
+        run: |
+          if [[ "${{ github.head_ref }}" != "development" ]]; then
+            echo "❌ Pull requests to main are only allowed from development."
+            exit 1
+          fi
