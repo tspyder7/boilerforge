@@ -1,3 +1,3 @@
 # boilerforge
 
-✨ boilerforge is a CLI tool to create project with boilerplate code
+✨ boilerforge is a blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.
