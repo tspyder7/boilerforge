@@ -1,7 +1,7 @@
 {
   "name": "boilerforge",
   "version": "1.0.0",
-  "description": "✨ boilerforge is a CLI tool to create project with boilerplate code",
+  "description": "✨ boilerforge is a blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.",
   "main": "dist/",
   "bin": {
     "boilerforge": "dist/cli.js"
