@@ -27,7 +27,6 @@ jobs:
 
       - name: Build
         run: pnpm run build
-        if: exists('package.json') && contains(runner.os, 'Linux') # optional
 
       - name: Publish to NPM
         run: npm publish --access public
