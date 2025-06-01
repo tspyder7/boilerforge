@@ -138,5 +138,5 @@ dist
 # build or bundles
 build/**/*
 
-# Ignore built ts files
+# Ignore built js files
 dist/**/*
