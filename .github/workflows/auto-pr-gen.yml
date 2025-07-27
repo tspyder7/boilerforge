@@ -1,0 +1,31 @@
+name: Generate Auto PR
+
+on:
+  push:
+    branches:
+      - development
+      - stage
+      - main
+
+jobs:
+  call-auto-pr:
+    permissions:
+      contents: write
+      pull-requests: write
+
+    uses: tspyder7/github-actions-lib/.github/workflows/auto-pr.yml@main
+    with:
+      pr-branch-hierarchy-json: |
+        {
+            "release": [
+                "stage"
+            ],
+            "stage": [
+                "main"
+            ],
+            "main": [
+                "development"
+            ]
+        }
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_REPO_TOKEN }}
