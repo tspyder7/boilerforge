@@ -9,9 +9,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "ci": "pnpm install --frozen-lockfile",
-    "build": "esbuild bin/cli.ts --bundle --platform=node --outfile=dist/cli.js --format=cjs",
+    "build": "ts-node esbuild.config.ts",
     "prebuild": "pnpm run clean && pnpm run lint && pnpm run format",
-    "start": "node dist/",
+    "start": "node dist/cli.js",
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier --write \"**/*.+(js|ts)\"",
     "test": "echo \"Error: no test specified\" && exit 1",
