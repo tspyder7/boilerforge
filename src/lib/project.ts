@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { Listr, ListrTaskWrapper } from 'listr2';
-import { dirname, join } from 'path';
+import { dirname, join, sep } from 'path';
 import { logger } from '../utils/logger';
 import { File } from './file';
 import { Task } from './task';
@@ -65,9 +65,10 @@ export abstract class Project {
 
         const cwd = process.cwd();
 
-        this.name = !name.length ? cwd[cwd.length - 1] : name;
-        this.description =
-            description ?? `Node.js application for ${this.name}`;
+        this.name = !name.length ? cwd.split(sep).slice(-1)[0] : name;
+        this.description = description?.length
+            ? description
+            : `Node.js application for ${this.name}`;
         this.version = version;
         this.author = author ?? '';
         this.packageManager = packageManager;

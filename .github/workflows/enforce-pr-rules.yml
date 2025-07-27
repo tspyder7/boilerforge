@@ -1,0 +1,31 @@
+name: Enforce PR Rules
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
+
+jobs:
+  enforce-pr-hierarchy:
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: tspyder7/github-actions-lib/.github/workflows/enforce-pr-hierarchy.yml@main
+    with:
+      allowed-branches-hierarchy-json: |
+        {
+            "release": [
+                "stage"
+            ],
+            "stage": [
+                "main"
+            ],
+            "main": [
+                "development"
+            ]
+        }
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
