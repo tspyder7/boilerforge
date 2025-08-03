@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# perform commit linting
+pnpm exec commitlint --edit $1
