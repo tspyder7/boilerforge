@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - development
-      - stage
-      - main
 
 jobs:
   call-auto-pr:
