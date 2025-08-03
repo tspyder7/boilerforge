@@ -17,12 +17,6 @@ jobs:
     with:
       allowed-branches-hierarchy-json: |
         {
-            "release": [
-                "stage"
-            ],
-            "stage": [
-                "main"
-            ],
             "main": [
                 "development"
             ]
