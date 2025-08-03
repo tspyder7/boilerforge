@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# check formatting and linting
+pnpm run lint && pnpm run format
