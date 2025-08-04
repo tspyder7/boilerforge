@@ -9,5 +9,7 @@
     },
     "bump-minor-pre-major": true,
     "include-v-in-tag": true,
-    "separate-pull-requests": false
+    "pull-request-title-pattern": "chore: release v${version}",
+    "pull-request-header": "Release - v${version}",
+    "separate-pull-requests": true
   }
