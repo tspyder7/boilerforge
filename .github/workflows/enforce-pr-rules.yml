@@ -18,7 +18,8 @@ jobs:
       allowed-branches-hierarchy-json: |
         {
             "main": [
-                "development"
+                "development",
+                "release-please-.*"
             ]
         }
     secrets:
