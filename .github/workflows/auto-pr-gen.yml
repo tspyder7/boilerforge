@@ -1,6 +1,7 @@
 name: Generate Auto PR
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - development
