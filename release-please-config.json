@@ -10,6 +10,6 @@
     "bump-minor-pre-major": true,
     "include-v-in-tag": true,
     "pull-request-title-pattern": "chore: release v${version}",
-    "pull-request-header": "Release - v${version}",
+    "pull-request-header": "Release Notes",
     "separate-pull-requests": true
 }
