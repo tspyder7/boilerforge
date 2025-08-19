@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.0.1...boilerforge-v1.0.2) (2025-08-19)
+
+
+### Bug Fixes
+
+* changed npm publish version and added mjs for prettier file ([#68](https://github.com/tspyder7/boilerforge/issues/68)) ([b977c77](https://github.com/tspyder7/boilerforge/commit/b977c77da6b092bad04cfb45eb27d46571bf88b0))
+
 ## [1.0.1](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.0.0...boilerforge-v1.0.1) (2025-08-19)
 
 
