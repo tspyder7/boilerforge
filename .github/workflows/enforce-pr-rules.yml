@@ -20,7 +20,7 @@ jobs:
         {
             "main": [
                 "development",
-                "release-please-.*"
+                "release-please-.*",
                 "hotfix/.*"
             ]
         }
