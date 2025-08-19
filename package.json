@@ -1,6 +1,6 @@
 {
   "name": "boilerforge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "✨ boilerforge is a blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.",
   "main": "dist/",
   "bin": {
