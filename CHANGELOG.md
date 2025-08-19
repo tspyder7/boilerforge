@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.0.0...boilerforge-v1.0.1) (2025-08-19)
+
+
+### Bug Fixes
+
+* fixed release please pull request header ([770c831](https://github.com/tspyder7/boilerforge/commit/770c831063090bb740c5c5112bf88a86a4378bdc))
+
 ## 1.0.0 (2025-08-19)
 
 
