@@ -6,6 +6,9 @@
   "bin": {
     "boilerforge": "dist/cli.js"
   },
+  "engines": {
+    "node": ">= 20.11.1"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "ci": "pnpm install --frozen-lockfile",
