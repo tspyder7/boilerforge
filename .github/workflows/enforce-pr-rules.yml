@@ -10,6 +10,7 @@ on:
 
 jobs:
   enforce-pr-hierarchy:
+    name: Use Enforce PR Hierarchy Workflow
     permissions:
       contents: write
       pull-requests: write
@@ -19,7 +20,8 @@ jobs:
         {
             "main": [
                 "development",
-                "release-please-.*"
+                "release-please-.*",
+                "hotfix/.*"
             ]
         }
     secrets:
