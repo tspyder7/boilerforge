@@ -8,7 +8,7 @@ on:
 jobs:
   publish-package:
     name: Use NPM Publish Workflow
-    uses: tspyder7/github-action-lib/.github/workflows/npm-publish.yml@main
+    uses: tspyder7/github-actions-lib/.github/workflows/npm-publish.yml@main
     with:
       node-version: "20"
       registry-url: "https://registry.npmjs.org/"
