@@ -10,7 +10,7 @@ jobs:
     name: Use NPM Publish Workflow
     uses: tspyder7/github-actions-lib/.github/workflows/npm-publish.yml@main
     with:
-      node-version: "20"
+      node-version: "22"
       registry-url: "https://registry.npmjs.org/"
       package-manager: "pnpm"
     secrets:
