@@ -8,12 +8,13 @@ on:
 
 jobs:
   release-changelog:
+    name: Use Release Please Workflow
     permissions:
       contents: write
       pull-requests: write
 
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
