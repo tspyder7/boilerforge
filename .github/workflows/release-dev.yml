@@ -1,0 +1,52 @@
+name: Development Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to release from'
+        required: false
+        default: 'ci/release-dev'
+
+jobs:
+  generate-release-changelogs:
+    name: Generate Release Changelogs for ${{ inputs.branch }}
+    if: ${{ github.event.inputs.branch == 'ci/release-dev' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout development branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Run `release-please` in direct mode
+        run: |
+          # Run release-please in “no-pull-request” mode and output JSON
+          out=$(npx release-please release \
+            --token=${{ secrets.GITHUB_TOKEN }} \
+            --default-branch=${{ github.event.inputs.branch }} \
+            --release-type=node \
+            --prerelease-id=dev \
+            --create-release-branch \
+            --release-branch="release-\${version}" \
+            --skip-tag \
+            --no-pull-request \
+            --json)
+
+          # Extract branch name & version
+          branch=$(echo "$out" | jq -r .branchName)
+          version=$(echo "$out" | jq -r .version)
+
+          # Persist for downstream steps
+          echo "RELEASE_BRANCH=$branch" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=$version" >> $GITHUB_ENV
