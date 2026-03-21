@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "template-config.schema.json",
+    "title": "Generic Template Configuration",
+    "description": "Schema for validating template-based configuration files with metadata and file mappings.",
+    "type": "object",
+    "required": [
+        "metadata",
+        "fileConfig"
+    ],
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "required": [
+                "name",
+                "version",
+                "templateExt"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the template or project"
+                },
+                "version": {
+                    "type": "string",
+                    "pattern": "^\\d+\\.\\d+\\.\\d+$",
+                    "description": "Semantic version (e.g., 1.0.0)"
+                },
+                "templateExt": {
+                    "type": "string",
+                    "description": "File extension used for templates (e.g., hbs, ejs)"
+                }
+            },
+            "additionalProperties": false
+        },
+        "fileConfig": {
+            "type": "object",
+            "minProperties": 1,
+            "description": "Mapping of file paths to condition tags",
+            "additionalProperties": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "string",
+                    "description": "Condition tag (e.g., isTypescript.true)"
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}

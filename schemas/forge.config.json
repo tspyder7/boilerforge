@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "name": "create-simple-app",
+        "version": "1.0.0"
+    },
+    "fileConfig": {
+        "src/index.ts": [
+            "isTypescript=true"
+        ],
+        "src/index.js": [
+            "isTypescript=false"
+        ],
+        ".prettierignore": [
+            "isEslintPrettier=true"
+        ],
+        ".prettierrc.json": [
+            "isEslintPrettier=true"
+        ],
+        "eslint.config.mjs": [
+            "isEslintPrettier=true"
+        ],
+        "tsconfig.json": [
+            "isTypescript=true"
+        ]
+    }
+}

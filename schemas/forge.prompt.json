@@ -1,0 +1,91 @@
+{
+    "prompts": [
+        {
+            "type": "text",
+            "name": "name",
+            "prompt": {
+                "message": "Project name",
+                "defaultValue": "getCwdDirName()"
+            },
+            "skip": "app.name.length > 0",
+            "validate": {
+                "expression": "!input.length || matches(input, Regex.PROJECT_NAME)",
+                "error": "Invalid project name"
+            }
+        },
+        {
+            "type": "text",
+            "name": "description",
+            "prompt": {
+                "message": "Description",
+                "defaultValue": "''"
+            }
+        },
+        {
+            "type": "text",
+            "name": "version",
+            "prompt": {
+                "message": "Version",
+                "defaultValue": "'0.0.1'"
+            },
+            "validate": {
+                "expression": "Regex.VERSION.test(input)",
+                "error": "Invalid version"
+            }
+        },
+        {
+            "type": "text",
+            "name": "author",
+            "prompt": {
+                "message": "Author",
+                "defaultValue": "''"
+            }
+        },
+        {
+            "type": "select",
+            "name": "packageManager",
+            "prompt": {
+                "message": "Package manager",
+                "defaultValue": "0"
+            },
+            "choices": [
+                {
+                    "name": "npm",
+                    "value": "npm"
+                },
+                {
+                    "name": "yarn",
+                    "value": "yarn"
+                },
+                {
+                    "name": "pnpm",
+                    "value": "pnpm"
+                }
+            ]
+        },
+        {
+            "type": "toggle",
+            "name": "isTypescript",
+            "prompt": {
+                "message": "Use TypeScript",
+                "defaultValue": "true"
+            },
+            "options": {
+                "enabled": "Yes",
+                "disabled": "No"
+            }
+        },
+        {
+            "type": "toggle",
+            "name": "isEslintPrettier",
+            "prompt": {
+                "message": "Use ESLint & Prettier formatting",
+                "defaultValue": "true"
+            },
+            "options": {
+                "enabled": "Yes",
+                "disabled": "No"
+            }
+        }
+    ]
+}
