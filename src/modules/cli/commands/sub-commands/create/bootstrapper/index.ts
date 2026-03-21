@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { difference } from 'lodash';
 import { Regex } from '../../../../../../constants';
 import { ExecutionContext } from '../../../../../../core/context/execution.context';
@@ -16,6 +15,7 @@ import { TaskExecutor } from '../../../../../task/task.executor';
 import { Task } from '../../../../../task/task.model';
 import { Template } from '../../../../../template/template.model';
 import { TemplateCompiler } from '../../../../../template/template.compiler';
+import { TemplateRegistry } from '../../../../../template/template.registry';
 
 export class Bootstrapper {
     private template: Template;
@@ -101,8 +101,9 @@ export class Bootstrapper {
         cliConfig: Record<string, string>,
     ): Promise<JSONObject> {
         const sanitizedCliConfig: JSONObject = {};
-        const { prompts } =
-            this.template.getPromptConfig() as unknown as PromptConfig;
+        const { prompts } = TemplateRegistry.getPromptConfig(
+            this.template,
+        ) as unknown as PromptConfig;
 
         const missingConfig = difference(
             prompts.map(({ name }) => name),

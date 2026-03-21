@@ -4,9 +4,10 @@ import { Expr } from '../expr';
 import { PromptContext } from '../../core/context/prompt.context';
 import { AppContext } from '../../core/context/app.context';
 import { Template } from '../template/template.model';
+import { TemplateRegistry } from '../template/template.registry';
 
 export class PromptParser {
-    constructor(private templateLoader: Template) {
+    constructor(private template: Template) {
         PromptContext.setContext({
             app: {
                 ...AppContext.getContext().data,
@@ -15,8 +16,9 @@ export class PromptParser {
     }
 
     async parse(): Promise<PromptDefinition[]> {
-        const promptConfig = this.templateLoader.getPromptConfig();
-        const schema = this.templateLoader.getSchema();
+        TemplateRegistry.getSchema(this.template);
+        const promptConfig = TemplateRegistry.getPromptConfig(this.template);
+        const schema = TemplateRegistry.getSchema(this.template);
 
         const {
             success: isValid,

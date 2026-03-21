@@ -10,6 +10,7 @@ import { ForgeMetadata } from '../../../../../types/common';
 import { Template } from '../../../../template/template.model';
 import { PromptConfig } from '../../../../../types/prompt';
 import { logger } from '../../../../../utils/logger';
+import { TemplateRegistry } from '../../../../template/template.registry';
 
 type ShowConfigOptions = GetOptions<typeof SubCommands.SHOW_CONFIG>;
 
@@ -57,7 +58,7 @@ export default class ShowConfigCommand
 
     private getConfig(templateName: string): ForgeMetadata {
         const template = new Template(templateName);
-        const { metadata } = template.getForgeConfig();
+        const { metadata } = TemplateRegistry.getForgeConfig(template);
         return metadata;
     }
 
@@ -65,7 +66,7 @@ export default class ShowConfigCommand
         const template = new Template(templateName);
 
         try {
-            const promptConfig = template.getPromptConfig();
+            const promptConfig = TemplateRegistry.getPromptConfig(template);
             return promptConfig as unknown as PromptConfig;
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
