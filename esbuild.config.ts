@@ -15,12 +15,12 @@ build({
     plugins: [
         copy({
             assets: {
-                from: ['./templates/**/*'],
+                from: ['./templates/**/*', './templates/**/.*'],
                 to: ['./templates'],
             },
         }),
     ],
     define: {
-        VERSION: JSON.stringify(version), // injects into runtime
+        CLI_VERSION: JSON.stringify(version), // injects into runtime
     },
 }).catch(() => process.exit(1));

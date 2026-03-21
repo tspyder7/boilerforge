@@ -1,6 +1,6 @@
 {
   "name": "boilerforge",
-  "version": "1.2.0-dev.1",
+  "version": "1.2.0-dev.2",
   "description": "✨ boilerforge is a blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.",
   "main": "dist/cli.js",
   "bin": {
@@ -17,8 +17,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "ci": "pnpm install --frozen-lockfile",
-    "build": "ts-node esbuild.config.ts",
     "prebuild": "pnpm run clean && pnpm run lint && pnpm run format",
+    "build": "ts-node esbuild.config.ts",
+    "postbuild": "npm link",
     "start": "node dist/cli.js",
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier --write \"**/*.+(js|ts)\"",
@@ -37,6 +38,8 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.25.1",
+    "@types/jexl": "^2.3.4",
+    "@types/lodash": "^4.17.20",
     "@types/node": "^22.15.2",
     "@typescript-eslint/eslint-plugin": "^8.31.0",
     "@typescript-eslint/parser": "^8.31.0",
@@ -53,6 +56,9 @@
     "typescript-eslint": "^8.31.0"
   },
   "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-errors": "^3.0.0",
+    "ajv-keywords": "^5.1.0",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "enquirer": "^2.4.1",
@@ -60,7 +66,9 @@
     "globby": "^14.1.0",
     "handlebars": "^4.7.8",
     "inquirer": "^12.6.1",
+    "jexl": "^2.3.0",
     "listr2": "^8.3.2",
+    "lodash": "^4.17.21",
     "remark-stringify": "^11.0.0",
     "unified": "^11.0.5",
     "unist-builder": "^4.0.0"
