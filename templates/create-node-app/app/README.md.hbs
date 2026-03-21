@@ -1,0 +1,54 @@
+# 🚀 {{name}}
+
+![version](https://img.shields.io/badge/version-{{version}}-green.svg)
+
+{{#if description}}
+## 📖 About Project
+
+{{description}}
+
+{{/if}}
+### Built With
+
+#### ![nodejs]({{badges.NODEJS}}) ![{{packageManager}}]({{badges.[packageManagerUpper]}}) ![{{#if enabledTypescript}}typescript{{else}}javascript{{/if}}]({{#if enabledTypescript}}{{badges.TYPESCRIPT}}{{else}}{{badges.JAVASCRIPT}}{{/if}}){{#if enabledEslintPrettier}} ![eslint]({{badges.ESLINT}}) ![prettier]({{badges.PRETTIER}}){{/if}}
+
+### 🛠️ Installation
+
+#### Navigate into the project directory
+
+```
+cd {{name}}
+```
+
+#### Install dependencies
+
+```
+{{installDepsCommand}}
+```
+
+### ▶️ Running the App
+
+{{#if enabledTypescript}}
+#### To start the app in development mode:
+
+```
+{{packageManager}} run dev
+```
+
+{{/if}}
+To start the app in production mode:
+
+{{#if enabledTypescript}}
+- Build the project
+  ```
+  {{packageManager}} run build
+  ```
+- Run app in production
+  ```
+  {{packageManager}} run start
+  ```
+{{else}}
+```
+{{packageManager}} run start
+```
+{{/if}}
