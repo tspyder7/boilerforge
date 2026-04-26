@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "packages": {
+        ".": {
+            "package-name": "boilerforge",
+            "release-type": "node",
+            "changelog-path": "CHANGELOG.md",
+            "prerelease-type": "rc",
+            "prerelease": true
+        }
+    },
+    "include-v-in-tag": true,
+    "bump-minor-pre-major": false,
+    "pull-request-title-pattern": "release(rc): v${version}",
+    "pull-request-header": "Release Notes",
+    "separate-pull-requests": true,
+    "bump-patch-for-minor-pre-major": true,
+    "versioning": "prerelease"
+}
