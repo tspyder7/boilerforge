@@ -1,0 +1,39 @@
+name: release-pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: "Release type (rc, alpha, beta, latest)"
+        type: choice
+        options:
+          - rc
+          - latest
+        default: latest
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      actions: write
+    uses: tspyder7/github-actions-lib/.github/workflows/release-pipeline.yml@main
+    with:
+      environment: production
+      release-type: ${{ inputs.release-type }}
+      publish: |
+        {
+          "uses": "tspyder7/github-actions-lib/actions/npm-publish@main",
+          "with": {
+            "package-manager": "pnpm",
+            "node-version": "22",
+            "registry-url": "https://registry.npmjs.org/",
+            "publish-tag": "${{ inputs.release-type }}"
+          }
+        }
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_REPO_TOKEN }}
