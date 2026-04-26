@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.0.2...boilerforge-v1.1.0) (2026-04-26)
+
+
+### Features
+
+* updated readme description ([#74](https://github.com/tspyder7/boilerforge/issues/74)) ([4c44e35](https://github.com/tspyder7/boilerforge/commit/4c44e357eceada7e4a82326e4fd5a88757cf87ed))
+
 ## [1.0.2](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.0.1...boilerforge-v1.0.2) (2025-08-19)
 
 
