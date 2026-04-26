@@ -15,7 +15,44 @@ on:
       - main
 
 jobs:
+  setup-release:
+    runs-on: ubuntu-latest
+    outputs:
+      release-type: ${{ steps.determine.outputs.release-type }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensures history is available for git log
+
+      - id: determine
+        run: |
+          release_type_input="${{ github.event.inputs.release-type }}"
+
+          if [ -n "$release_type_input" ]; then
+            type="$release_type_input"
+          else
+            echo "No manual input found. Proceeding to Priority 2: Parsing commit message..."
+
+            COMMIT_MSG=$(git log --format=%s -n 1)
+            echo "Last Commit Message: $COMMIT_MSG"
+
+            parsed_release_type=$(echo "$COMMIT_MSG" | sed -n 's/^release(\(.*\)):.*$/\1/p')
+
+            if [ -n "$parsed_release_type" ]; then
+              echo "Pattern matched! Parsed type: $parsed_release_type"
+              type="$parsed_release_type"
+            else
+              echo "Error: No release type provided via input AND commit message does not match 'release(type):'"
+              exit 1
+            fi
+          fi
+
+          echo "release-type=$type" >> $GITHUB_OUTPUT
+          echo "Successfully resolved release-type to: $type"
+
   release:
+    needs: setup-release
     permissions:
       id-token: write
       contents: write
@@ -24,7 +61,7 @@ jobs:
     uses: tspyder7/github-actions-lib/.github/workflows/release-pipeline.yml@main
     with:
       environment: production
-      release-type: ${{ inputs.release-type }}
+      release-type: ${{ needs.setup-release.outputs.release-type }}
       publish: |
         {
           "uses": "tspyder7/github-actions-lib/actions/npm-publish@main",
@@ -32,7 +69,7 @@ jobs:
             "package-manager": "pnpm",
             "node-version": "22",
             "registry-url": "https://registry.npmjs.org/",
-            "publish-tag": "${{ inputs.release-type }}"
+            "publish-tag": "${{ needs.setup-release.outputs.release-type }}"
           }
         }
     secrets:
