@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.0...boilerforge-v1.1.1) (2026-04-26)
+
+
+### Bug Fixes
+
+* **ci:** added setup-release job ([#76](https://github.com/tspyder7/boilerforge/issues/76)) ([08afa65](https://github.com/tspyder7/boilerforge/commit/08afa65ed19d705ec684d3bcbd4c3bc2e41afbba))
+* **ci:** giving warning message when there is no release-type ([#77](https://github.com/tspyder7/boilerforge/issues/77)) ([d821871](https://github.com/tspyder7/boilerforge/commit/d821871eb63b1ebcaf6d8a2ff5a042e6e725bfe6))
+
 ## [1.1.0](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.0.2...boilerforge-v1.1.0) (2026-04-26)
 
 
