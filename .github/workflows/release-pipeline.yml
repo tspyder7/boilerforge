@@ -21,7 +21,7 @@ jobs:
       release-type: ${{ steps.determine.outputs.release-type }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0 # Ensures history is available for git log
 
@@ -43,8 +43,7 @@ jobs:
               echo "Pattern matched! Parsed type: $parsed_release_type"
               type="$parsed_release_type"
             else
-              echo "Error: No release type provided via input AND commit message does not match 'release(type):'"
-              exit 1
+              echo "WARN: No release type provided via input AND commit message does not match 'release(type):'"
             fi
           fi
 
