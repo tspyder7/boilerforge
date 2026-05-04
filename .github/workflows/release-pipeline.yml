@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       release-type:
-        description: "Release type (rc, alpha, beta, latest)"
+        description: "Release type"
         type: choice
         options:
           - rc
