@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.1...boilerforge-v1.1.2) (2026-05-04)
+
+
+### Bug Fixes
+
+* updated node engine &gt;= 24 and added keyword, repository configuation ([#79](https://github.com/tspyder7/boilerforge/issues/79)) ([8022e7a](https://github.com/tspyder7/boilerforge/commit/8022e7afb5cd7685c7650816a181d4131b0f8d8d))
+
 ## [1.1.1](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.0...boilerforge-v1.1.1) (2026-04-26)
 
 
