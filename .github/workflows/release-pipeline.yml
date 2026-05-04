@@ -32,7 +32,7 @@ jobs:
           if [ -n "$release_type_input" ]; then
             type="$release_type_input"
           else
-            echo "No manual input found. Proceeding to Priority 2: Parsing commit message..."
+            echo "No manual input found. Proceeding to parse commit message..."
 
             COMMIT_MSG=$(git log --format=%s -n 1)
             echo "Last Commit Message: $COMMIT_MSG"
@@ -41,7 +41,7 @@ jobs:
 
             if [ -n "$parsed_release_type" ]; then
               echo "Pattern matched! Parsed type: $parsed_release_type"
-              type="$parsed_release_type"
+              type=$([ "$parsed_release_type" = "prod" ] && echo "latest" || echo "$release_type")
             else
               echo "WARN: No release type provided via input AND commit message does not match 'release(type):'"
             fi
@@ -66,7 +66,7 @@ jobs:
           "uses": "tspyder7/github-actions-lib/actions/npm-publish@main",
           "with": {
             "package-manager": "pnpm",
-            "node-version": "22",
+            "node-version": "24",
             "registry-url": "https://registry.npmjs.org/",
             "publish-tag": "${{ needs.setup-release.outputs.release-type }}"
           }
