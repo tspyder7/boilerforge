@@ -1,57 +1,66 @@
 {
-  "name": "boilerforge",
-  "version": "1.1.0",
-  "description": "A blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.",
-  "main": "dist/",
-  "bin": {
-    "boilerforge": "dist/cli.js"
-  },
-  "engines": {
-    "node": ">= 22"
-  },
-  "scripts": {
-    "clean": "rimraf dist",
-    "ci": "pnpm install --frozen-lockfile",
-    "build": "ts-node esbuild.config.ts",
-    "prebuild": "pnpm run clean && pnpm run lint && pnpm run format",
-    "start": "node dist/cli.js",
-    "lint": "eslint --ext .js,.ts .",
-    "format": "prettier --write \"**/*.+(js|ts)\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node bin/cli.ts",
-    "prepare": "husky"
-  },
-  "keywords": [],
-  "author": "tspyder7",
-  "license": "MIT",
-  "packageManager": "pnpm@10.9.0",
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/js": "^9.25.1",
-    "@types/node": "^22.15.2",
-    "@typescript-eslint/eslint-plugin": "^8.31.0",
-    "@typescript-eslint/parser": "^8.31.0",
-    "esbuild": "^0.25.3",
-    "eslint": "^9.25.1",
-    "globals": "^16.0.0",
-    "husky": "^9.1.7",
-    "prettier": "^3.5.3",
-    "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.31.0"
-  },
-  "dependencies": {
-    "chalk": "^5.4.1",
-    "commander": "^13.1.0",
-    "enquirer": "^2.4.1",
-    "execa": "^9.5.2",
-    "inquirer": "^12.6.1",
-    "listr2": "^8.3.2",
-    "remark-stringify": "^11.0.0",
-    "unified": "^11.0.5",
-    "unist-builder": "^4.0.0"
-  }
+    "name": "boilerforge",
+    "version": "1.1.0",
+    "description": "A blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.",
+    "main": "dist/",
+    "bin": {
+        "boilerforge": "dist/cli.js"
+    },
+    "engines": {
+        "node": ">= 24"
+    },
+    "scripts": {
+        "clean": "rimraf dist",
+        "ci": "pnpm install --frozen-lockfile",
+        "build": "ts-node esbuild.config.ts",
+        "prebuild": "pnpm run clean && pnpm run lint && pnpm run format",
+        "start": "node dist/cli.js",
+        "lint": "eslint --ext .js,.ts .",
+        "format": "prettier --write \"**/*.+(js|ts)\"",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "ts-node bin/cli.ts",
+        "prepare": "husky"
+    },
+    "keywords": [
+        "cli",
+        "boilerplate",
+        "scaffolding-tool",
+        "automation"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tspyder7/boilerforge.git"
+    },
+    "author": "tspyder7",
+    "license": "MIT",
+    "packageManager": "pnpm@10.9.0",
+    "devDependencies": {
+        "@commitlint/cli": "^19.8.1",
+        "@commitlint/config-conventional": "^19.8.1",
+        "@eslint/js": "^9.25.1",
+        "@types/node": "^22.15.2",
+        "@typescript-eslint/eslint-plugin": "^8.31.0",
+        "@typescript-eslint/parser": "^8.31.0",
+        "esbuild": "^0.25.3",
+        "eslint": "^9.25.1",
+        "globals": "^16.0.0",
+        "husky": "^9.1.7",
+        "prettier": "^3.5.3",
+        "rimraf": "^6.0.1",
+        "ts-node": "^10.9.2",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.31.0"
+    },
+    "dependencies": {
+        "chalk": "^5.4.1",
+        "commander": "^13.1.0",
+        "enquirer": "^2.4.1",
+        "execa": "^9.5.2",
+        "inquirer": "^12.6.1",
+        "listr2": "^8.3.2",
+        "remark-stringify": "^11.0.0",
+        "unified": "^11.0.5",
+        "unist-builder": "^4.0.0"
+    }
 }
