@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.3](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.2...boilerforge-v1.1.3) (2026-05-04)
+
+
+### Bug Fixes
+
+* **ci:** cancelled in progress release-pipeline workflows ([#83](https://github.com/tspyder7/boilerforge/issues/83)) ([210daae](https://github.com/tspyder7/boilerforge/commit/210daae626de6758a01c57d8b45adca6f52c670f))
+* **ci:** fixed typo in workflow ([#82](https://github.com/tspyder7/boilerforge/issues/82)) ([8ea21cb](https://github.com/tspyder7/boilerforge/commit/8ea21cbae37b4ee17f08e100d59edd7ce4913754))
+* **ci:** updated release-pipeline to use node 24 & fixed release configuration prod -&gt; latest ([#81](https://github.com/tspyder7/boilerforge/issues/81)) ([a36e469](https://github.com/tspyder7/boilerforge/commit/a36e469390d8187414474b0a7754b67209865842))
+
 ## [1.1.2](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.1...boilerforge-v1.1.2) (2026-05-04)
 
 
