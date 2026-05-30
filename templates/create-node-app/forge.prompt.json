@@ -1,0 +1,105 @@
+{
+    "prompts": [
+        {
+            "type": "text",
+            "name": "name",
+            "description": "Name of application",
+            "prompt": {
+                "message": "Project name",
+                "defaultValue": "getCwdDirName()"
+            }
+        },
+        {
+            "type": "text",
+            "name": "description",
+            "description": "A description for application",
+            "prompt": {
+                "message": "Description",
+                "defaultValue": "''"
+            }
+        },
+        {
+            "type": "text",
+            "name": "version",
+            "description": "Application version",
+            "prompt": {
+                "message": "Version",
+                "defaultValue": "'0.0.1'"
+            },
+            "validate": {
+                "expression": "matches(input, Regex.VERSION)",
+                "error": "Invalid version format"
+            }
+        },
+        {
+            "type": "text",
+            "name": "author",
+            "description": "Name of author",
+            "prompt": {
+                "message": "Author",
+                "defaultValue": "''"
+            }
+        },
+        {
+            "type": "select",
+            "name": "packageManager",
+            "description": "Package manager",
+            "prompt": {
+                "message": "Package manager",
+                "defaultValue": "0"
+            },
+            "choices": [
+                {
+                    "name": "npm",
+                    "value": "npm"
+                },
+                {
+                    "name": "yarn",
+                    "value": "yarn"
+                },
+                {
+                    "name": "pnpm",
+                    "value": "pnpm"
+                }
+            ],
+            "validate": {
+                "expression": "input in ['npm', 'yarn', 'pnpm']",
+                "error": "Please select a valid package manager (npm, yarn, or pnpm)."
+            }
+        },
+        {
+            "type": "toggle",
+            "name": "isTypescript",
+            "description": "Typescript enabled",
+            "prompt": {
+                "message": "Use TypeScript",
+                "defaultValue": "true"
+            },
+            "options": {
+                "enabled": "Yes",
+                "disabled": "No"
+            },
+            "validate": {
+                "expression": "isBoolean(input)",
+                "error": "isTypescript must be true or false"
+            }
+        },
+        {
+            "type": "toggle",
+            "name": "isEslintPrettier",
+            "description": "Eslint & prettier enabled",
+            "prompt": {
+                "message": "Use ESLint & Prettier formatting",
+                "defaultValue": "true"
+            },
+            "options": {
+                "enabled": "Yes",
+                "disabled": "No"
+            },
+            "validate": {
+                "expression": "isBoolean(input)",
+                "error": "isEslintPrettier must be true or false"
+            }
+        }
+    ]
+}

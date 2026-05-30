@@ -1,0 +1,30 @@
+{
+    "name": "{{name}}",
+    "version": "{{version}}",
+    "description": "{{description}}",
+    "author": "{{author}}",
+    "license": "ISC",
+    "main": "{{main}}",
+    {{#if scripts}}
+    "scripts": {
+        {{#each scripts}}
+        "{{@key}}": "{{this}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    },
+    {{/if}}
+    {{#if devDependencies}}
+    "devDependencies": {
+        {{#each devDependencies}}
+        "{{@key}}": "{{this}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    },
+    {{/if}}
+    {{#if dependencies}}
+    "dependencies": {
+        {{#each dependencies}}
+        "{{@key}}": "{{this}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    },
+    {{/if}}
+    "packageManager": "{{packageManager}}"
+}
