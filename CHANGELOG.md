@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.3...boilerforge-v1.2.0) (2026-05-30)
+
+
+### Features
+
+* replace hardcoded templates with dynamic template scaffolding ([#85](https://github.com/tspyder7/boilerforge/issues/85)) ([883c749](https://github.com/tspyder7/boilerforge/commit/883c749ba33c9a8de4aa21d9884e0869b687292b))
+
 ## [1.1.3](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.2...boilerforge-v1.1.3) (2026-05-04)
 
 
