@@ -8,6 +8,6 @@ export class Path {
     }
 
     static existsOrThrow(path: string, message: string) {
-        if (existsSync(path)) throw new Error(message);
+        if (!existsSync(path)) throw new Error(message);
     }
 }
