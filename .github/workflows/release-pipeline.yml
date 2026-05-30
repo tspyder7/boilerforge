@@ -1,0 +1,79 @@
+name: release-pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: "Release type"
+        type: choice
+        options:
+          - rc
+          - latest
+        default: latest
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  setup-release:
+    runs-on: ubuntu-latest
+    outputs:
+      release-type: ${{ steps.determine.outputs.release-type }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # Ensures history is available for git log
+
+      - id: determine
+        run: |
+          release_type_input="${{ github.event.inputs.release-type }}"
+
+          if [ -n "$release_type_input" ]; then
+            type="$release_type_input"
+          else
+            echo "No manual input found. Proceeding to parse commit message..."
+
+            COMMIT_MSG=$(git log --format=%s -n 1)
+            echo "Last Commit Message: $COMMIT_MSG"
+
+            parsed_release_type=$(echo "$COMMIT_MSG" | sed -n 's/^release(\(.*\)):.*$/\1/p')
+
+            if [ -n "$parsed_release_type" ]; then
+              echo "Pattern matched! Parsed type: $parsed_release_type"
+              type=$([ "$parsed_release_type" = "prod" ] && echo "latest" || echo "$release_type")
+            else
+              echo "WARN: No release type provided via input AND commit message does not match 'release(type):'"
+            fi
+          fi
+
+          echo "release-type=$type" >> $GITHUB_OUTPUT
+          echo "Successfully resolved release-type to: $type"
+
+  release:
+    needs: setup-release
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      actions: write
+    uses: tspyder7/github-actions-lib/.github/workflows/release-pipeline.yml@main
+    with:
+      environment: production
+      release-type: ${{ needs.setup-release.outputs.release-type }}
+      publish: |
+        {
+          "uses": "tspyder7/github-actions-lib/actions/npm-publish@main",
+          "with": {
+            "package-manager": "pnpm",
+            "node-version": "24",
+            "registry-url": "https://registry.npmjs.org/",
+            "publish-tag": "${{ needs.setup-release.outputs.release-type }}"
+          }
+        }
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_REPO_TOKEN }}
