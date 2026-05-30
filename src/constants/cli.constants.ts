@@ -12,7 +12,7 @@ export const TemplateConfig = {
 export const CLI = {
     NAME: 'boilerforge',
     DESCRIPTION:
-        'boilerforge is a blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.',
+        'A is a blazing-fast CLI utility that scaffolds clean, ready-to-use project structures so you can skip the setup and start building instantly.',
     VERSION: getCLIVersion(),
 } as const;
 
