@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "target": "ES2024",
-        "module": "commonjs",
-        "moduleResolution": "node",
+        "module": "NodeNext",
+        "moduleResolution": "nodenext",
         "outDir": "./dist",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,

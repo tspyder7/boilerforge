@@ -30,7 +30,6 @@ export default class CreateCommand
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async action(args: string[], options: CreateOptions) {
         const [template] = args;
         const { cliConfig } = options;
