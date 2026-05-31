@@ -42,7 +42,7 @@ You'll be guided through a series of prompts to configure your project (e.g., pr
 For non-interactive environments, pass options via `--cli-config`:
 
 ```bash
-boilerforge create create-simple-app --cli-config "name=my-app;description=My app;version=1.0.0;author=me;packageManager=pnpm;isTypescript=true;isEslintPrettier=true"
+boilerforge create create-node-app --cli-config "name=my-app;description=My app;version=1.0.0;author=me;packageManager=pnpm;isTypescript=true;isEslintPrettier=true"
 ```
 
 The format is `key=value` pairs separated by `;`.
