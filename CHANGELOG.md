@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.2.0...boilerforge-v1.2.1) (2026-05-31)
+
+
+### Bug Fixes
+
+* rename create-simple-app template to create-node-app ([#88](https://github.com/tspyder7/boilerforge/issues/88)) ([c1a4cb8](https://github.com/tspyder7/boilerforge/commit/c1a4cb882662829907a746ca806174d7b1ebed91))
+
 ## [1.2.0](https://github.com/tspyder7/boilerforge/compare/boilerforge-v1.1.3...boilerforge-v1.2.0) (2026-05-30)
 
 
